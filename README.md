@@ -44,7 +44,7 @@ Returns an array of the ports
 
 ## Methods
 
-### searchPorts()
+### searchPorts(string)
 
 Search for ports matching with either name, province, or country
 
@@ -102,7 +102,7 @@ console.log(ports.searchPorts("Lagos"));
 */
 ````
 
-### searchByName()
+### searchByName(name)
 
 Search for ports matching with name
 
@@ -132,7 +132,7 @@ console.log(ports.searchByName("Apapa"));
 */
 ````
 
-### searchByCountry()
+### searchByCountry(country)
 
 Search for ports matching with country
 
@@ -184,7 +184,7 @@ console.log(ports.searchByCountry("Nigeria"));
 */
 ````
 
-### searchByCity()
+### searchByCity(city)
 
 Search for ports matching with city
 
