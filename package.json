@@ -1,0 +1,40 @@
+{
+  "name": "sea-ports",
+  "version": "0.0.1",
+  "main": "./index.js",
+  "description": "Sea Ports JSON Data",
+  "scripts": {
+    "test": "NODE_ENV=test NODE_PATH=./test node ./node_modules/mocha/bin/mocha --harmony "
+  },
+  "keywords": [
+    "cbp",
+    "sea",
+    "port",
+    "seaport",
+    "code",
+    "unloc",
+    "json"
+  ],
+  "author": "Richard Igbiriki <imorobebh@gmail.com>",
+  "dependencies": {},
+  "devDependencies": {
+    "chai": "^3.5.0",
+    "eslint": "^6.6.0",
+    "lodash": "^4.9.0",
+    "mocha": "^2.4.5",
+    "rewire": "^2.5.1"
+  },
+  "engines": {
+    "node": ">=4.1.0",
+    "iojs": ">= 2.4.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/marchah/sea-ports.git"
+  },
+  "bugs": {
+    "url": "https://github.com/marchah/sea-ports/issues"
+  },
+  "homepage": "https://github.com/marchah/sea-ports",
+  "license": "MIT"
+}
