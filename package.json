@@ -30,11 +30,8 @@
   },
   "repository": {
     "type": "git",
-    "url": "git://github.com/marchah/sea-ports.git"
+    "url": "https://github.com/imoris11/sea-ports.git"
   },
-  "bugs": {
-    "url": "https://github.com/marchah/sea-ports/issues"
-  },
-  "homepage": "https://github.com/marchah/sea-ports",
+  "homepage": "https://github.com/imoris11/sea-ports.git",
   "license": "MIT"
 }

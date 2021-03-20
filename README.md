@@ -1,14 +1,14 @@
 # sea-ports
-Sea Ports JSON Data
+Sea Ports Data
 
-*Be aware the GPS coordinates are not all correct*
+Minified sea ports based on [this package](https://github.com/marchah/sea-ports/)
 
 ## Installation
 
 Install via [npm](https://www.npmjs.com/):
 
 ```
-$ npm install sea-ports
+$ npm install ocean-ports
 ```
 
 ## Documentation
@@ -17,105 +17,213 @@ $ npm install sea-ports
 
 #### `JSON`
 
-Return a JSON object with all the ports with the unloc as key
+Returns an array of the ports
 ```javascript
-{
-  "AEAJM": {
+[
+  {
     "name": "Ajman",
-    "city": "Ajman",
     "country": "United Arab Emirates",
-    "alias": [],
-    "regions": [],
-    "coordinates": [
-      55.5136433,
-      25.4052165
-    ],
     "province": "Ajman",
-    "timezone": "Asia/Dubai",
-    "unlocs": [
-      "AEAJM"
-    ],
-    "code" : "52000"
+    "unlocs": "AEAJM",
   },
-  "AEAUH": {
+  {
     "name": "Abu Dhabi",
-    "coordinates": [
-      54.37,
-      24.47
-    ],
-    "city": "Abu Dhabi",
     "province": "Abu Z¸aby [Abu Dhabi]",
     "country": "United Arab Emirates",
-    "alias": [],
-    "regions": [],
-    "timezone": "Asia/Dubai",
-    "unlocs": [
-      "AEAUH"
-    ],
-    "code": "52001"
+    "unlocs": "AEAUH",
   },
-  "AEDXB": {
+  {
     "name": "Dubai",
-    "coordinates": [
-      55.27,
-      25.25
-    ],
-    "city": "Dubai",
     "province": "Dubayy [Dubai]",
     "country": "United Arab Emirates",
-    "alias": [],
-    "regions": [],
-    "timezone": "Asia/Dubai",
-    "unlocs": [
-      "AEDXB"
-    ],
-    "code": "52005"
+    "unlocs": "AEDXB",
   },
   ...
-}
+]
 ```
 
 ## Methods
 
-### getByUnloc(unloc)
+### searchPorts()
 
-Return the matched port, else undefined (alias: `getByUNLOC`, `findByUnloc`, `findByUNLOC`)
+Search for ports matching with either name, province, or country
 
 ## Examples
 
 ````javascript
-var ports = require('sea-ports');
+var ports = require('ocean-ports');
 
-console.log(ports.JSON);
+console.log(ports.searchPorts("Lagos"));
 /*
-{
-  "AEAJM": {
-    "name": "Ajman",
-    "city": "Ajman",
-    "country": "United Arab Emirates",
-    "alias": [],
-    "regions": [],
-    "coordinates": [
-      55.5136433,
-      25.4052165
-    ],
-    "province": "Ajman",
-    "timezone": "Asia/Dubai",
-    "unlocs": [
-      "AEAJM"
-    ],
-    "code" : "52000"
+[
+  {
+    name: 'Lagos',
+    province: 'Lagos',
+    unlocs: 'NGLOS',
+    country: 'Nigeria',
+    type: 'port'
   },
-  ...
-}
+  {
+    name: 'Lagos',
+    province: 'Lagos',
+    unlocs: 'NGLOS',
+    country: 'Nigeria',
+    type: 'city'
+  },
+  {
+    name: 'Tincan/Lagos',
+    province: 'Lagos',
+    unlocs: 'NGTIN',
+    country: 'Nigeria',
+    type: 'port'
+  },
+  {
+    name: 'Tincan/Lagos',
+    province: 'Lagos',
+    unlocs: 'NGTIN',
+    country: 'Nigeria',
+    type: 'city'
+  },
+  {
+    name: 'Calbuco',
+    province: 'Los Lagos',
+    unlocs: 'CLCBC',
+    country: 'Chile',
+    type: 'port'
+  },
+  {
+    name: 'Tincan/Lagos',
+    province: 'Lagos',
+    unlocs: 'NGTIN',
+    country: 'Nigeria',
+    type: 'city'
+  }
+]
 */
 ````
 
-## Contributing
+### searchByName()
 
-This project is a work in progress and subject to API changes.
-A lot of port's codes are missing (338/1624).
-Some data may be wrong, feel free to correct them.
-Also I plan on adding couple functions to search ports.
+Search for ports matching with name
 
-Please feel free to contribute
+## Examples
+
+````javascript
+var ports = require('ocean-ports');
+
+console.log(ports.searchByName("Apapa"));
+/*
+[
+  {
+    name: 'Apapa',
+    province: 'Lagos',
+    unlocs: 'NGAPP',
+    country: 'Nigeria',
+    type: 'port'
+  },
+  {
+    name: 'Apapa',
+    province: 'Lagos',
+    unlocs: 'NGAPP',
+    country: 'Nigeria',
+    type: 'city'
+  }
+]
+*/
+````
+
+### searchByCountry()
+
+Search for ports matching with country
+
+## Examples
+
+````javascript
+var ports = require('ocean-ports');
+
+console.log(ports.searchByCountry("Nigeria"));
+/*
+[
+  {
+    name: 'Apapa',
+    province: 'Lagos',
+    unlocs: 'NGAPP',
+    country: 'Nigeria',
+    type: 'port'
+  },
+  {
+    name: 'Apapa',
+    province: 'Lagos',
+    unlocs: 'NGAPP',
+    country: 'Nigeria',
+    type: 'city'
+  },
+  {
+    name: 'Calabar',
+    province: 'Cross River',
+    unlocs: 'NGCBQ',
+    country: 'Nigeria',
+    type: 'port'
+  },
+  {
+    name: 'Calabar',
+    province: 'Cross River',
+    unlocs: 'NGCBQ',
+    country: 'Nigeria',
+    type: 'city'
+  },
+  {
+    name: 'Lagos',
+    province: 'Lagos',
+    unlocs: 'NGLOS',
+    country: 'Nigeria',
+    type: 'port'
+  },
+...
+]
+*/
+````
+
+### searchByCity()
+
+Search for ports matching with city
+
+## Examples
+
+````javascript
+var ports = require('ocean-ports');
+
+console.log(ports.searchByCity("Rivers"));
+/*
+[
+  {
+    name: 'Onne',
+    province: 'Rivers',
+    unlocs: 'NGONN',
+    country: 'Nigeria',
+    type: 'port'
+  },
+  {
+    name: 'Onne',
+    province: 'Rivers',
+    unlocs: 'NGONN',
+    country: 'Nigeria',
+    type: 'city'
+  },
+  {
+    name: 'Port Harcourt',
+    province: 'Rivers',
+    unlocs: 'NGPHC',
+    country: 'Nigeria',
+    type: 'port'
+  },
+  {
+    name: 'Port Harcourt',
+    province: 'Rivers',
+    unlocs: 'NGPHC',
+    country: 'Nigeria',
+    type: 'city'
+  }
+]
+*/
+````

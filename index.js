@@ -19,8 +19,8 @@ const searchByCountry = (country) => {
   return ports.filter((port)=> port.country.toLowerCase().includes(country.toLowerCase()) )
 }
 
-const results = searchPorts("Apapa")
-console.log(results.length)
+const results = searchByCity("Rivers")
+console.log(results)
 
 module.exports = {
   JSON: ports,
