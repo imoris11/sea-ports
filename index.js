@@ -1,8 +1,6 @@
 'use strict';
-const fs = require('fs')
-const portsFromFile = fs.readFileSync('./lib/ports.json', 'utf-8')
-const ports = JSON.parse(portsFromFile).ports
-
+const data = require('./lib/ports.js')
+const ports = data.ports
 const searchPorts = (searchString) => {
  return [...searchByName(searchString), ...searchByCity(searchString), ...searchByCountry(searchString)]
 }
