@@ -10,7 +10,7 @@ const searchByName = (name) => {
 }
 
 const searchByCity = (city) => {
-  return ports.filter((port)=> port.province?.toLowerCase().includes(city.toLowerCase()) )
+  return ports.filter((port)=> port.province.toLowerCase().includes(city.toLowerCase()) )
 }
 
 const searchByCountry = (country) => {
